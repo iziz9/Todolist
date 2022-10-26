@@ -49,7 +49,11 @@
 
 ## API 사용법
 
-- 요청 주소(Endpoint): `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos`
+- 요청 주소(Endpoint)
+
+```curl
+https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos
+```
 
 모든 API 요청(Request) `headers`에 아래 정보가 꼭 포함돼야 합니다!  
 `username`은 `KDT3_ParkYoungWoong`와 같이 본명을 포함해야 합니다!  
