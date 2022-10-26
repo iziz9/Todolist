@@ -49,7 +49,7 @@
 
 ## API 사용법
 
-- 요청 주소(Endpoint)
+요청 주소(Endpoint)
 
 ```curl
 https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos
