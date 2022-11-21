@@ -101,7 +101,7 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos
 
 요청 데이터 타입 및 예시:
 
--
+- 없음
 
 응답 데이터 타입 및 예시:
 
@@ -281,7 +281,7 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/:todoId
 
 요청 데이터 타입 및 예시:
 
--
+- 없음
 
 응답 데이터 타입 및 예시:
 
