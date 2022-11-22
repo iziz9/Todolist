@@ -245,7 +245,7 @@ curl https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/:todoId
 interface RequestBody {
   title: string // 할 일 제목 (필수!)
   done: boolean // 할 일 완료 여부 (필수!)
-  order: number // 할 일 순서
+  order?: number // 할 일 순서
 }
 ```
 
