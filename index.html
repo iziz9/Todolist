@@ -4,11 +4,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To do list</title>
+  <title>TO DO LIST</title>
 
-  <script src="./JS/main.js"></script>
-</head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="module" src="./js/main.js"></script>
+  <link rel="stylesheet" href="./css/main.scss" />
+
 <body>
-  
+  <header>
+    <h1>TO DO LIST</h1>
+  </header>
+  <div class="input-container" id="input-container">
+    <div class="input-area" id="input-area">
+      <input type="text" class="todo-input" id="todo-input" maxlength="50" />
+      <button class="todo-btn" id="add-btn" type="button">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <div class="radio-area" id="radio-area">
+      <input type="radio" id="filter1" name="filter" value="ALL">
+      <label for="filter1">All</label>
+      <input type="radio" id="filter2" name="filter" value="TODO">
+      <label for="filter2">Todo</label>
+      <input type="radio" id="filter3" name="filter" value="DONE">
+      <label for="filter3">Done</label>
+    </div>
+  </div>
+  <div class="todo-container" id="todo-container">
+    <div class="todo-list" id="todo-list">
+      <!-- <div class="todo">
+        <input readonly="" class="todo-item">
+        <button id="complete-btn" class="complete-btn">
+          <i class="fas fa-check"></i>
+        </button>
+        <button id="edit-btn" class="edit-btn">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button id="save-btn" class="save-btn">
+          <i class="fas fa-save"></i>
+        </button>
+        <button id="delete-btn" class="delete-btn">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div> -->
+    </div>
+  </div>
 </body>
+
 </html>
