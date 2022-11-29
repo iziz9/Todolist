@@ -3,10 +3,31 @@ const addBtnEl = document.querySelector("#add-btn");
 const todoContainerEl = document.getElementById("todo-container");
 const todoListEl = todoContainerEl.querySelector("#todo-list");
 
+
+// post 요청 보내기
+async function postTodo(text) {
+  const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'apikey': 'FcKdtJs202209',
+      'username': 'KDT3_KangHyeonJu'
+    },
+    body: JSON.stringify({
+      title: `${text}`
+    })
+  })
+  const postResult = await res.json()
+  console.log(postResult);
+  return postResult;
+}
+
+
 // todo 생성 (버튼 클릭시)
 const inputBtnEvent = addBtnEl.addEventListener('click', () => {
   createHandler();
 })
+
 // todo 생성 (Enter 누를 때)
 const inputKeyupEvent = todoInputEl.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
@@ -14,22 +35,55 @@ const inputKeyupEvent = todoInputEl.addEventListener('keyup', (event) => {
   }
 })
 // todo 생성 핸들러
-function createHandler(){
-  if(todoInputEl.value.length ===0) {
+function createHandler() {
+  if (todoInputEl.value.length === 0) {
     alert("내용을 입력해주세요");
     return;
   } else {
-    createToDoElement(todoInputEl.value);
+    postTodo(todoInputEl.value);
+    // createToDoElement(todoInputEl.value);
   }
 }
 
+
+// get 요청 보내기
+async function getTodo() {
+  const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos', {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      'apikey': 'FcKdtJs202209',
+      'username': 'KDT3_KangHyeonJu'
+    }
+  })
+  const getResult = await res.json()
+
+  //못받아오면..?
+
+  return getResult
+
+}
+
+const getArr = await getTodo();
+console.log(getArr);
+
+getArr.forEach(item => createToDoElement(item));
+
+
 // todo 내용 생성
-function createToDoElement(value) {
+function createToDoElement(val) {
+  const id = val.id;
+  const order = val.order;
+  const title = val.title;
+  const done = val.done;
+  const createdAt = val.createdAt;
+  const updatedAt = val.updatedAt;
+
   const todoDiv = document.createElement('div');
   todoDiv.classList.add('todo');
 
   const todoContent = document.createElement('input');
-  todoContent.value = value;
+  todoContent.value = title;
   todoContent.readOnly = true;
   todoContent.classList.add('todo-item');
 
@@ -47,11 +101,17 @@ function createToDoElement(value) {
   fragment.appendChild(
     createBtn('save-btn', 'save-btn', ['fas', 'fa-save'])
   );
+
+  // fragment.appendChild(
+
+  // )
+
   todoDiv.appendChild(fragment);
   todoListEl.appendChild(todoDiv);
   todoInputEl.value = '';
 }
 
+// 목록에 버튼 생성
 function createBtn(btnId, btnClass, iconClass) {
   const btn = document.createElement('button');
   const icon = document.createElement('i');
@@ -63,7 +123,7 @@ function createBtn(btnId, btnClass, iconClass) {
 }
 
 export {
-  todoInputEl, 
+  todoInputEl,
   todoListEl,
   todoContainerEl,
   addBtnEl,
@@ -71,5 +131,15 @@ export {
   inputKeyupEvent,
   createHandler,
   createToDoElement,
-  createBtn
+  createBtn,
+  postTodo
 }
+
+// function getTodos() {
+  //API 로직상관없이
+  //return todos 결과가 나오면됨. 
+  // 내용부터 만들필요 없이 함수부터 만들고 안의 로직은 나중에...
+  // 함수에서 나올 결과를 먼저 생각해보기 -> 추상화
+  //readTOdo(){ }
+  //createTodo(){ } ,,,,,,,,
+// }

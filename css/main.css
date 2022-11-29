@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: skyblue;
+  background-color: gray;
   color: white;
 }
 
@@ -45,7 +45,7 @@ header {
   border: none;
   background: white;
   color: white;
-  background: green;
+  background: black;
   cursor: pointer;
 }
 
@@ -88,7 +88,7 @@ header {
   display: none;
 }
 .todo-container .todo-list .todo .delete-btn {
-  background: red;
+  background: darkcyan;
   color: white;
   border: none;
   padding: 1rem;
@@ -96,7 +96,7 @@ header {
   font-size: 1rem;
 }
 .todo-container .todo-list .todo .complete-btn {
-  background: blue;
+  background: seagreen;
   color: white;
   border: none;
   padding: 1rem;
@@ -104,7 +104,7 @@ header {
   font-size: 1rem;
 }
 .todo-container .todo-list .todo .edit-btn {
-  background: black;
+  background: yellowgreen;
   color: white;
   border: none;
   padding: 1rem;
