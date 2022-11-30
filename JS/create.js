@@ -1,8 +1,9 @@
+import API_KEY from './apikey.js';
+
 const todoInputEl = document.querySelector("#todo-input");
 const addBtnEl = document.querySelector("#add-btn");
 const todoContainerEl = document.getElementById("todo-container");
 const todoListEl = todoContainerEl.querySelector("#todo-list");
-
 
 // post 요청 보내기
 async function postTodo(text) {
@@ -10,7 +11,7 @@ async function postTodo(text) {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      'apikey': 'FcKdtJs202209',
+      'apikey': `${API_KEY}`,
       'username': 'KDT3_KangHyeonJu'
     },
     body: JSON.stringify({
@@ -18,7 +19,7 @@ async function postTodo(text) {
     })
   })
   const postResult = await res.json()
-  console.log(postResult);
+  // createToDoElement();
   return postResult;
 }
 
@@ -41,7 +42,6 @@ function createHandler() {
     return;
   } else {
     postTodo(todoInputEl.value);
-    // createToDoElement(todoInputEl.value);
   }
 }
 
@@ -52,63 +52,62 @@ async function getTodo() {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
-      'apikey': 'FcKdtJs202209',
+      'apikey': `${API_KEY}`,
       'username': 'KDT3_KangHyeonJu'
     }
   })
   const getResult = await res.json()
-
   //못받아오면..?
-
+  //?????
+  
+  //받아오면!
+  console.log(getResult)
   return getResult
-
 }
-
-const getArr = await getTodo();
-console.log(getArr);
-
-getArr.forEach(item => createToDoElement(item));
 
 
 // todo 내용 생성
-function createToDoElement(val) {
-  const id = val.id;
-  const order = val.order;
-  const title = val.title;
-  const done = val.done;
-  const createdAt = val.createdAt;
-  const updatedAt = val.updatedAt;
+async function createToDoElement() {
+  const list = await getTodo();
 
-  const todoDiv = document.createElement('div');
-  todoDiv.classList.add('todo');
-
-  const todoContent = document.createElement('input');
-  todoContent.value = title;
-  todoContent.readOnly = true;
-  todoContent.classList.add('todo-item');
-
-  const fragment = new DocumentFragment();
-  fragment.appendChild(todoContent);
-  fragment.appendChild(
-    createBtn('complete-btn', 'complete-btn', ['fas', 'fa-check'])
-  );
-  fragment.appendChild(
-    createBtn('edit-btn', 'edit-btn', ['fas', 'fa-edit'])
-  );
-  fragment.appendChild(
-    createBtn('delete-btn', 'delete-btn', ['fas', 'fa-trash'])
-  );
-  fragment.appendChild(
-    createBtn('save-btn', 'save-btn', ['fas', 'fa-save'])
-  );
-
-  // fragment.appendChild(
-
-  // )
-
-  todoDiv.appendChild(fragment);
-  todoListEl.appendChild(todoDiv);
-  todoInputEl.value = '';
+  list.forEach(item => {
+    const order = item.order;
+    const title = item.title;
+    const done = item.done;
+    const createdAt = item.createdAt;
+    const updatedAt = item.updatedAt;
+  
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('todo');
+  
+    const todoContent = document.createElement('input');
+    todoContent.value = title;
+    todoContent.readOnly = true;
+    todoContent.classList.add('todo-item');
+  
+    const fragment = new DocumentFragment();
+    fragment.appendChild(todoContent);
+    fragment.appendChild(
+      createBtn('complete-btn', 'complete-btn', ['fas', 'fa-check'])
+    );
+    fragment.appendChild(
+      createBtn('edit-btn', 'edit-btn', ['fas', 'fa-edit'])
+    );
+    fragment.appendChild(
+      createBtn('delete-btn', 'delete-btn', ['fas', 'fa-trash'])
+    );
+    fragment.appendChild(
+      createBtn('save-btn', 'save-btn', ['fas', 'fa-save'])
+    );
+  
+    // fragment.appendChild(
+  
+    // )
+  
+    todoDiv.appendChild(fragment);
+    todoListEl.appendChild(todoDiv);
+    todoInputEl.value = '';
+  })
 }
 
 // 목록에 버튼 생성
@@ -143,3 +142,8 @@ export {
   //readTOdo(){ }
   //createTodo(){ } ,,,,,,,,
 // }
+
+
+//함수.prototype.deleteItem = function(id){
+//   
+//}

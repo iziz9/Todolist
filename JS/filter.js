@@ -8,7 +8,6 @@ export function addRadioBtnEvent() {
   for (const filterRadioBtnEl of filterRadioBtnEls) {
     filterRadioBtnEl.addEventListener('click', (e) => {
       const { value } = e.target;
-      console.log(value);
       filterTodo(value);
     });
   }

@@ -19,9 +19,15 @@ import {
   filterTodo
 } from './filter.js'
 
+import API_KEY from './apikey.js';
+
 const inputAreaEl = document.querySelector("#input-area");
 
+
+// 초기화
 addRadioBtnEvent();
+createToDoElement();
+
 
 
 // todo 삭제 이벤트
@@ -39,7 +45,6 @@ todoListEl.addEventListener('click', (event) => {
     completeTodo(target);
   }
 })
-
 
 function completeTodo(target) {
   const todoDiv = target.closest('.todo');
@@ -61,18 +66,15 @@ function editTodo(target) {
   todoDiv.classList.add('edit');
 }
 
-function deleteTodo(target) {
+async function deleteTodo(target) {
   const todoDiv = target.closest('.todo');
   todoDiv.addEventListener('transitionend', () => {
     todoDiv.remove();
   })
   todoDiv.classList.add('delete');
+  const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos', {
+    method: 'DELETE'
+  })
+
 }
-
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const todoList = new todoList();
-// })
 
