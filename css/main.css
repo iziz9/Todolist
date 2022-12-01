@@ -2,11 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "NanumDaSiSiJagHae", sans-serif;
 }
 
 body {
   background-color: gray;
   color: white;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 header {
@@ -14,8 +18,8 @@ header {
   justify-content: center;
   align-items: center;
   margin: auto;
-  padding: 0.5rem;
-  font-size: 2rem;
+  padding: 10px;
+  font-size: 50px;
 }
 
 .input-container {
@@ -24,7 +28,7 @@ header {
   align-items: center;
   width: 600px;
   margin: auto;
-  padding: 0.5rem;
+  padding: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -33,15 +37,15 @@ header {
   width: 600px;
 }
 .input-container .input-area .todo-input {
-  padding: 0.5rem;
-  font-size: 2rem;
+  padding: 10px;
+  font-size: 35px;
   border: none;
   background: white;
   width: 100%;
 }
 .input-container .input-area .todo-btn {
-  padding: 0.5rem;
-  font-size: 2rem;
+  padding: 10px;
+  font-size: 35px;
   border: none;
   background: white;
   color: white;
@@ -58,9 +62,9 @@ header {
   width: 600px;
 }
 .todo-container .todo-list .todo {
-  margin: 0.5rem;
+  margin: 10px;
   background: white;
-  font-size: 1.5rem;
+  font-size: 20px;
   color: black;
   display: flex;
   justify-content: space-between;
@@ -70,9 +74,9 @@ header {
 .todo-container .todo-list .todo .todo-item {
   flex-grow: 1;
   border: none;
-  font-size: 1.5rem;
+  font-size: 30px;
   outline: none;
-  padding: 0rem 0.5rem;
+  padding: 0 10px;
   overflow-x: scroll;
   white-space: nowrap;
 }
@@ -147,7 +151,9 @@ header {
   left: -9999px;
 }
 .input-container .radio-area input[type=radio] + label {
-  padding: 0.8em 1.6em;
+  padding: 16px 28px;
+  font-size: 25px;
+  font-weight: 700;
   background-color: #fff;
   cursor: pointer;
   color: black;

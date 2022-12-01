@@ -1,19 +1,10 @@
-import API_KEY from './apikey.js';
-
-const todoInputEl = document.querySelector("#todo-input");
-const addBtnEl = document.querySelector("#add-btn");
-const todoContainerEl = document.getElementById("todo-container");
-const todoListEl = todoContainerEl.querySelector("#todo-list");
+import {url, header, selectors} from './store.js'
 
 // post 요청 보내기
 async function postTodo(text) {
-  const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos', {
+  const res = await fetch(url, {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'apikey': `${API_KEY}`,
-      'username': 'KDT3_KangHyeonJu'
-    },
+    headers: header,
     body: JSON.stringify({
       title: `${text}`
     })
@@ -22,65 +13,48 @@ async function postTodo(text) {
   return postResult;
 }
 
-
-// todo 생성 (버튼 클릭시)
-const inputBtnEvent = addBtnEl.addEventListener('click', () => {
+// submit 이벤트
+const submitEvent = selectors.formEl.addEventListener('submit', async (event) => {
+  event.preventDefault();
   createHandler();
 })
 
-// todo 생성 (Enter 누를 때)
-const inputKeyupEvent = todoInputEl.addEventListener('keyup', (event) => {
-  if (event.key === 'Enter') {
-    createHandler();
-  }
-})
 // todo 생성 핸들러
 function createHandler() {
-  if (todoInputEl.value.length === 0) {
+  if (selectors.inputText.value.length === 0) {
     alert("내용을 입력해주세요");
     return;
   } else {
-    postTodo(todoInputEl.value);
+    postTodo(selectors.inputText.value);
   }
 }
 
-
 // get 요청 보내기
 async function getTodo() {
-  const res = await fetch('https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos', {
+  const res = await fetch(url, {
     method: 'GET',
-    headers: {
-      'content-type': 'application/json',
-      'apikey': `${API_KEY}`,
-      'username': 'KDT3_KangHyeonJu'
-    }
+    headers: header
   })
   const getResult = await res.json()
   //못받아오면..?
   //?????
   
-  //받아오면!
-  // console.log(getResult)
+  //받아오면?
   return getResult
 }
 
 
 // todo 내용 생성
-async function createToDoElement() {
+async function renderTodo() {
   const list = await getTodo();
   list.forEach(item => {
-    const id = item.id;
-    const order = item.order;
-    const title = item.title;
-    const done = item.done;
-    const createdAt = item.createdAt;
-    const updatedAt = item.updatedAt;
- 
+    console.log(item);
+
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
   
     const todoContent = document.createElement('input');
-    todoContent.value = title;
+    todoContent.value = item.title;
     todoContent.readOnly = true;
     todoContent.classList.add('todo-item');
   
@@ -104,8 +78,8 @@ async function createToDoElement() {
     // )
   
     todoDiv.appendChild(fragment);
-    todoListEl.appendChild(todoDiv);
-    todoInputEl.value = '';
+    selectors.todoListEl.appendChild(todoDiv);
+    selectors.inputText.value = '';
   })
 }
 
@@ -119,25 +93,17 @@ function createBtn(btnId, btnClass, iconClass, itemId) {
   btn.id = btnId;
   btn.classList.add(btnClass);
 
-  if (btn.id === "delete-btn") { //itemId는 delete-btn에 dataset속성으로 넣어주기
+  if (btn.id === "delete-btn") { 
     btn.dataset.id = `${itemId}`
-    // const btnIcon = document.querySelector('svg') //icon에도 넣어줘야되나
-    // console.log(btnIcon)
-    // btnIcon.dataset.id = `${itemId}`
   }
   return btn;
 }
 
 export {
-  todoInputEl,
-  todoListEl,
-  todoContainerEl,
-  addBtnEl,
-  inputBtnEvent,
-  inputKeyupEvent,
+  submitEvent,
   getTodo,
   createHandler,
-  createToDoElement,
+  renderTodo,
   createBtn,
   postTodo
 }
@@ -150,8 +116,3 @@ export {
   //readTOdo(){ }
   //createTodo(){ } ,,,,,,,,
 // }
-
-
-//함수.prototype.deleteItem = function(id){
-//   
-//}

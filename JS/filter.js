@@ -1,11 +1,8 @@
-const todoContainerEl = document.getElementById("todo-container");
-const inputContainerEl = document.getElementById('input-container');
-const radioAreaEl = inputContainerEl.querySelector('#radio-area');
-const filterRadioBtnEls = radioAreaEl.querySelectorAll('input[name="filter"]');
+import { selectors } from "./store.js";
 
 // radio 클릭 이벤트
 export function addRadioBtnEvent() {
-  for (const filterRadioBtnEl of filterRadioBtnEls) {
+  for (const filterRadioBtnEl of selectors.filterRadioBtnEls) {
     filterRadioBtnEl.addEventListener('click', (e) => {
       const { value } = e.target;
       filterTodo(value);
@@ -14,7 +11,7 @@ export function addRadioBtnEvent() {
 };
 
 export function filterTodo(status) {
-  const todoListEl = todoContainerEl.querySelector("#todo-list");
+  const todoListEl = document.querySelector("#todo-list");
   const todoDivEls = todoListEl.querySelectorAll('div.todo');
   for (const todoDivEl of todoDivEls) {
     switch (status) {
@@ -33,11 +30,4 @@ export function filterTodo(status) {
         break;
     }
   }
-}
-
-export {
-  todoContainerEl,
-  inputContainerEl,
-  radioAreaEl,
-  filterRadioBtnEls,
 }
