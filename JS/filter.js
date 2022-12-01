@@ -1,15 +1,6 @@
 import { selectors } from "./store.js";
 
-// radio 클릭 이벤트
-export function addRadioBtnEvent() {
-  for (const filterRadioBtnEl of selectors.filterRadioBtnEls) {
-    filterRadioBtnEl.addEventListener('click', (e) => {
-      const { value } = e.target;
-      filterTodo(value);
-    });
-  }
-};
-
+// 목록 필터링
 export function filterTodo(status) {
   const todoListEl = document.querySelector("#todo-list");
   const todoDivEls = todoListEl.querySelectorAll('div.todo');
@@ -31,3 +22,14 @@ export function filterTodo(status) {
     }
   }
 }
+
+// 필터버튼 클릭이벤트
+export function addRadioBtnEvent() {
+  for (const filterRadioBtnEl of selectors.filterRadioBtnEls) {
+    filterRadioBtnEl.addEventListener('click', (e) => {
+      const { value } = e.target;
+      filterTodo(value);
+    });
+  }
+};
+

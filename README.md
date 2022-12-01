@@ -36,7 +36,7 @@
 - [ ] 할 일 항목의 최신 수정일을 표시해보세요.
 - [ ] 할 일 목록이 출력되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
 - [ ] 기타 동작이 완료되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
-- [ ] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
+- [x] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
 - [ ] 할 일과 관련된 기타 기능도 고려해보세요.
 
 ---
@@ -44,6 +44,7 @@
 🥦 사용한 자료
 
 - [favicon](https://www.flaticon.com/search?word=memo&order_by=4) Flaticon
-- [background image](https://www.rmg.co.uk/whats-on/astronomy-photographer-year/galleries/galaxies-2022) © Mishra, Michael Petrasko and Muir Evenden
+- background image © Rae Kang
+
 
 ---

@@ -29,6 +29,7 @@ function createHandler() {
   }
 }
 
+
 // get 요청 보내기
 async function getTodo() {
   const res = await fetch(url, {

@@ -1,5 +1,5 @@
 import { renderTodo } from './create.js';
-import { addRadioBtnEvent, filterTodo} from './filter.js'
+import { addRadioBtnEvent} from './filter.js'
 import { deleteTodo } from './delete.js';
 import { selectors } from './store.js'
 
@@ -8,7 +8,7 @@ addRadioBtnEvent();
 renderTodo();
 
 
-// 리스트 버튼들 클릭 이벤트
+// 리스트 버튼 클릭 이벤트
 selectors.todoListEl.addEventListener('click', (event) => {
   const { target } = event; // 버튼 + 아이콘
   const btn = target.closest('button'); // 현재 엘리먼트에서 본인 포함 가장 가까운 조상 반환, 조상요소에 이벤트 위임

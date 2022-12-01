@@ -6,24 +6,37 @@
 }
 
 body {
-  background-color: gray;
+  font-family: "NanumDaSiSiJagHae", sans-serif;
+  background-color: black;
   color: white;
+  background-image: url(../images/christmastree.jpg);
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 header {
   display: flex;
+  text-shadow: 2px 2px 2px black;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 50px auto;
   padding: 10px;
-  font-size: 50px;
+  font-size: 80px;
+}
+header .github {
+  font-size: 15px;
+}
+header .github img {
+  width: 40px;
+  height: 40px;
+  margin: 0 30px;
+  filter: invert(60%);
 }
 
 .input-container {
-  height: 300px;
+  height: 200px;
   display: flex;
   align-items: center;
   width: 600px;
@@ -49,14 +62,21 @@ header {
   border: none;
   background: white;
   color: white;
-  background: black;
+  background: olive;
   cursor: pointer;
 }
 
 .todo-container {
+  background-color: rgba(0, 0, 0, 0.692);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 15px auto;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 .todo-container .todo-list {
   width: 600px;
@@ -142,16 +162,16 @@ header {
 .input-container .radio-area {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .input-container .radio-area input[type=radio] {
   width: 0;
   height: 0;
   position: absolute;
-  left: -9999px;
 }
 .input-container .radio-area input[type=radio] + label {
-  padding: 16px 28px;
+  margin: 0 30px;
+  padding: 16px 20px;
   font-size: 25px;
   font-weight: 700;
   background-color: #fff;
@@ -165,7 +185,7 @@ header {
   border-color: cadetblue;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .input-container {
     width: 100%;
   }
