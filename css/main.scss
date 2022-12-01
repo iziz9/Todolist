@@ -84,7 +84,9 @@ header {
 
     .todo {
       margin: 10px;
-      background: white;
+      background-color: white;
+      border: 2px solid black;
+      // border-radius: 10px;
       font-size: 20px;
       color: black;
       display: flex;
@@ -95,7 +97,6 @@ header {
       transition: 1s ease;
 
       .todo-item {
-        // !
         flex-grow: 1;
         border: none;
         font-size: 30px;
@@ -194,19 +195,20 @@ header {
 
     +label {
       margin: 0 30px;
-      padding: 16px 20px;
+      padding: 10px 20px;
       font-size: 25px;
       font-weight: 700;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.774);
       cursor: pointer;
       color: black;
       transition: 0.2s;
+      border: 3px solid black;
+      border-radius: 10px;
     }
 
     &:checked+label {
-      background-color: cadetblue;
+      background-color: rgba(72, 62, 47, 0.685);
       color: #fff;
-      border-color: cadetblue;
     }
   }
 }

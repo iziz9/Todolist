@@ -44,7 +44,7 @@
 🥦 사용한 자료
 
 - [favicon](https://www.flaticon.com/search?word=memo&order_by=4) Flaticon
-- background image © Rae Kang
+- [background image]() © Rae Kang
 
 
 ---
