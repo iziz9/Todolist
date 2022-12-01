@@ -24,7 +24,6 @@ addRadioBtnEvent();
 createToDoElement();
 
 
-
 // 리스트 버튼들 클릭 이벤트
 todoListEl.addEventListener('click', (event) => {
   const { target } = event; // 버튼 + 아이콘
@@ -40,7 +39,6 @@ todoListEl.addEventListener('click', (event) => {
     completeTodo(btn);
   }
 })
-
 
 function completeTodo(target) {
   const todoDiv = target.closest('.todo');
