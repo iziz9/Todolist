@@ -1,11 +1,12 @@
-import { renderTodo } from './create.js';
-import { addRadioBtnEvent} from './filter.js'
+import { getTodo, renderTodo } from './create.js';
+import { addRadioBtnEvent } from './filter.js'
 import { deleteTodo } from './delete.js';
-import { selectors } from './store.js'
+import { url, header, selectors } from './store.js'
 
 // 초기화
 addRadioBtnEvent();
-renderTodo();
+// renderTodo();
+getTodo()
 
 
 // 리스트 버튼 클릭 이벤트
@@ -24,18 +25,39 @@ selectors.todoListEl.addEventListener('click', (event) => {
   }
 })
 
+// done 처리하기
 function completeTodo(target) {
   const todoDiv = target.closest('.todo');
   todoDiv.classList.toggle('done');
-  //수정api -> done으로 상태 변경 넣기
+  console.log(todoDiv.classList);
+  const todoInputEl = todoDiv.querySelector('input');
+
+  todoDiv.classList.contains('done')
+    ? putTodo(todoInputEl.value, target.dataset.id, true)
+    : putTodo(todoInputEl.value, target.dataset.id, false)
 }
 
+// 텍스트 변경사항 저장
 function saveTodo(target) {
   const todoDiv = target.closest('.todo');
   todoDiv.classList.remove('edit');
   const todoInputEl = todoDiv.querySelector('input');
   todoInputEl.readOnly = true;
-  //수정api -> title변경 넣기
+  putTodo(todoInputEl.value, target.dataset.id,); //수정된 텍스트 넣어줌
+}
+
+// 수정 api 요청
+async function putTodo(text, id, done) {
+  const res = await fetch(url + `${id}`, {
+    method: 'PUT',
+    headers: header,
+    body: JSON.stringify({
+      title: `${text}`,
+      done: done
+    })
+  })
+  const postResult = await res.json()
+  return postResult;
 }
 
 function editTodo(target) {
