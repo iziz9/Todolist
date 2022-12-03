@@ -27,12 +27,11 @@ export function completeTodo(target) {
 
 // 텍스트 변경사항 저장
 export function saveTodo(target) {
-  console.log(target)
   const todoDiv = target.closest('.todo');
   todoDiv.classList.remove('edit');
   const todoInputEl = todoDiv.querySelector('input');
   todoInputEl.readOnly = true;
-  putTodo(todoInputEl.value, target.dataset.id, false); //수정된 텍스트 넣어줌
+  putTodo(todoInputEl.value, target.dataset.id, false);
 }
 
 export function editTodo(target) {

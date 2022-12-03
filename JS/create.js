@@ -5,10 +5,9 @@ import { renderTodo } from './read.js';
 // submit 이벤트
 const submitEvent = selectors.formEl.addEventListener('submit', async (event) => {
   event.preventDefault();
-  createHandler();
+  await createHandler();
   selectors.todoListEl.textContent = '';
-  await renderTodo();
-  console.log('post')
+  renderTodo();
 })
 
 // todo 생성을 위한 post 핸들러
@@ -17,7 +16,7 @@ async function createHandler() {
     alert("내용을 입력해주세요!");
     return;
   } else {
-    postTodo(selectors.inputText.value);
+    await postTodo(selectors.inputText.value);
   }
 }
 
@@ -31,7 +30,6 @@ async function postTodo(text) {
     })
   })
   const postResult = await res.json()
-  console.log(postResult)
   return postResult;
 }
 
