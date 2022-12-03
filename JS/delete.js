@@ -1,19 +1,16 @@
-import API_KEY from './apikey.js';
-import { getTodo } from './create.js';
+import { url, header } from './store.js';
 
-export async function deleteTodo(btn) {// 리스트 삭제
-  const list = await getTodo();
-  const todoDiv = btn.closest('.todo');
-  todoDiv.addEventListener('transitionend', () => {
-    todoDiv.remove();
+// 리스트 삭제
+export async function deleteTodo(btn) {
+  const todoItem = btn.closest('.todo-wrap');
+  todoItem.classList.add('delete');
+  todoItem.addEventListener('transitionend', () => {
+    todoItem.remove();
   })
-  todoDiv.classList.add('delete');
-  const res = await fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${btn.dataset.id}`, {
+
+  const res = await fetch(url + `${btn.dataset.id}`, {
     method: 'DELETE',
-    headers: {
-      'content-type': 'application/json',
-      'apikey': `${API_KEY}`,
-      'username': 'KDT3_KangHyeonJu'
-    }
+    headers: header
   })
+  return res;
 }

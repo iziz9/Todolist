@@ -8,7 +8,7 @@
 body {
   font-family: "NanumDaSiSiJagHae", sans-serif;
   background-color: black;
-  color: white;
+  color: rgba(255, 255, 255, 0.908);
   background-image: url(../images/christmastree.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +23,7 @@ header {
   margin: 50px auto;
   padding: 10px;
   font-size: 80px;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 3px 3px 3px black;
 }
 header .github {
   width: 100px;
@@ -52,6 +52,7 @@ header .github img {
   flex-wrap: wrap;
 }
 .input-container .input-area {
+  position: relative;
   display: flex;
   width: 600px;
 }
@@ -60,7 +61,7 @@ header .github img {
   font-size: 35px;
   border: 4px solid black;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.899);
+  background-color: rgba(226, 226, 226, 0.899);
   width: 100%;
 }
 .input-container .input-area .todo-input::-moz-placeholder {
@@ -79,6 +80,7 @@ header .github img {
   background-color: rgba(245, 237, 222, 0.756);
   outline: none;
   padding-left: 20px;
+  caret-color: olivedrab;
 }
 .input-container .input-area .todo-input:focus::-moz-placeholder {
   font-style: italic;
@@ -90,12 +92,18 @@ header .github img {
   font-style: italic;
 }
 .input-container .input-area .todo-btn {
+  position: absolute;
+  right: 8px;
+  top: 9px;
   padding: 10px;
-  font-size: 35px;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  font-size: 20px;
   border: none;
-  background: white;
-  color: white;
-  background: olive;
+  border-radius: 15px;
+  color: rgba(226, 226, 226, 0.899);
+  background: rgba(0, 0, 0, 0.859);
   cursor: pointer;
 }
 .input-container .radio-area {
@@ -114,18 +122,18 @@ header .github img {
   font-size: 25px;
   font-weight: 700;
   background-color: rgba(255, 255, 255, 0.774);
-  cursor: pointer;
   color: black;
   transition: 0.2s;
   border: 3px solid black;
   border-radius: 10px;
+  cursor: pointer;
 }
 .input-container .radio-area input[type=radio] + label:hover {
   background-color: rgba(245, 222, 179, 0.619);
 }
 .input-container .radio-area input[type=radio]:checked + label {
   background-color: rgba(72, 62, 47, 0.685);
-  color: #fff;
+  color: rgba(255, 255, 255, 0.908);
 }
 
 .select-all {
@@ -147,6 +155,7 @@ header .github img {
   transition: 0.2s;
   border: 3px solid black;
   border-radius: 10px;
+  display: none;
 }
 .select-all .delete-all:hover {
   background-color: rgba(191, 182, 164, 0.753);
@@ -167,86 +176,24 @@ header .github img {
 .todo-container .todo-list {
   width: 600px;
 }
-.todo-container .todo-list .todo {
-  margin: 5px 10px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 10px;
-  font-size: 20px;
-  color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.todo-container .todo-list .todo-wrap {
   transition: 1s ease;
 }
-.todo-container .todo-list .todo .todo-item {
-  flex-grow: 1;
-  border: none;
-  font-size: 30px;
-  outline: none;
-  padding: 0 10px;
-  overflow-x: scroll;
-  white-space: nowrap;
-}
-.todo-container .todo-list .todo.delete {
+.todo-container .todo-list .todo-wrap.delete {
   transform: translateX(10rem);
   opacity: 0;
 }
-.todo-container .todo-list .todo.done {
-  text-decoration: line-through;
+.todo-container .todo-list .todo-wrap.done .todo {
+  color: grey;
+  -webkit-text-decoration: 2px line-through;
+          text-decoration: 2px line-through;
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+.todo-container .todo-list .todo-wrap.done .date-div {
   opacity: 0.5;
 }
-.todo-container .todo-list .todo .todo-item::-webkit-scrollbar {
-  display: none;
-}
-.todo-container .todo-list .todo .delete-btn {
-  background: darkcyan;
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.todo-container .todo-list .todo .complete-btn {
-  background: seagreen;
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.todo-container .todo-list .todo .edit-btn {
-  background: yellowgreen;
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.todo-container .todo-list .todo .save-btn {
-  background: black;
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-  background: black;
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-  display: none;
-}
-.todo-container .todo-list .todo.edit .complete-btn,
-.todo-container .todo-list .todo.edit .edit-btn,
-.todo-container .todo-list .todo.edit .delete-btn {
-  display: none;
-}
-.todo-container .todo-list .todo.edit .save-btn {
-  display: block;
-}
-.todo-container .date-div {
+.todo-container .todo-list .todo-wrap .date-div {
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -254,6 +201,93 @@ header .github img {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: grey;
   font-size: 11px;
+}
+.todo-container .todo-list .todo-wrap .todo {
+  margin: 5px 10px;
+  font-size: 20px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-container .todo-list .todo-wrap .todo .todo-item {
+  flex-grow: 1;
+  line-height: 50px;
+  background-color: rgba(226, 226, 226, 0.899);
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 30px;
+  outline: none;
+  padding: 0 10px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.todo-container .todo-list .todo-wrap .todo .todo-item:focus {
+  background-color: rgba(244, 239, 229, 0.763);
+  outline: none;
+  padding-left: 20px;
+}
+.todo-container .todo-list .todo-wrap .todo .todo-item::-webkit-scrollbar {
+  display: none;
+}
+.todo-container .todo-list .todo-wrap .todo .delete-btn {
+  background-color: rgba(226, 226, 226, 0.899);
+  color: rgb(154, 14, 42);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.todo-container .todo-list .todo-wrap .todo .delete-btn:hover {
+  background-color: rgba(255, 249, 238, 0.527);
+}
+.todo-container .todo-list .todo-wrap .todo .complete-btn {
+  background-color: rgba(226, 226, 226, 0.899);
+  color: seagreen;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.todo-container .todo-list .todo-wrap .todo .complete-btn:hover {
+  background-color: rgba(255, 249, 238, 0.527);
+}
+.todo-container .todo-list .todo-wrap .todo .edit-btn {
+  background-color: rgba(226, 226, 226, 0.899);
+  color: #402d5a;
+  border: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.todo-container .todo-list .todo-wrap .todo .edit-btn:hover {
+  background-color: rgba(255, 249, 238, 0.527);
+}
+.todo-container .todo-list .todo-wrap .todo .save-btn {
+  background-color: rgba(226, 226, 226, 0.899);
+  color: black;
+  border: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+}
+.todo-container .todo-list .todo-wrap .todo .save-btn:hover {
+  background-color: rgba(255, 249, 238, 0.527);
+}
+.todo-container .todo-list .todo-wrap .todo.edit .complete-btn,
+.todo-container .todo-list .todo-wrap .todo.edit .edit-btn,
+.todo-container .todo-list .todo-wrap .todo.edit .delete-btn {
+  display: none;
+}
+.todo-container .todo-list .todo-wrap .todo.edit .save-btn {
+  display: block;
 }
 
 @media (max-width: 700px) {
@@ -268,6 +302,6 @@ header .github img {
     width: 100%;
   }
   .select-all {
-    width: 90%;
+    width: 80%;
   }
 }/*# sourceMappingURL=main.css.map */

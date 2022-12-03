@@ -8,7 +8,7 @@
 body {
   font-family: 'NanumDaSiSiJagHae', sans-serif;
   background-color: black;
-  color: white;
+  color: rgba(255, 255, 255, 0.908);
   background-image: url(../images/christmastree.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,14 +17,13 @@ body {
 }
 
 header {
-  // width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
   margin: 50px auto;
   padding: 10px;
   font-size: 80px;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 3px 3px 3px black;
 
   .github {
     width: 100px;
@@ -55,6 +54,7 @@ header {
   flex-wrap: wrap;
 
   .input-area {
+    position: relative;
     display: flex;
     width: 600px;
 
@@ -63,7 +63,7 @@ header {
       font-size: 35px;
       border: 4px solid black;
       border-radius: 20px;
-      background-color: rgba(255, 255, 255, 0.899);
+      background-color: rgba(226, 226, 226, 0.899);
       width: 100%;
 
       &::placeholder {
@@ -72,10 +72,10 @@ header {
       }
 
       &:focus {
-        // background-color: rgba(255, 255, 255, 0.779);
         background-color: rgba(245, 237, 222, 0.756);
         outline: none;
         padding-left: 20px;
+        caret-color: olivedrab;
 
         &::placeholder {
           font-style: italic;
@@ -84,12 +84,18 @@ header {
     }
 
     .todo-btn {
+      position: absolute;
+      right: 8px;
+      top: 9px;
       padding: 10px;
-      font-size: 35px;
+      width: 50px;
+      height: 50px;
+      margin: auto;
+      font-size: 20px;
       border: none;
-      background: white;
-      color: white;
-      background: olive;
+      border-radius: 15px;
+      color: rgba(226, 226, 226, 0.899);
+      background: rgba(0, 0, 0, 0.859);
       cursor: pointer;
     }
   }
@@ -110,11 +116,11 @@ header {
         font-size: 25px;
         font-weight: 700;
         background-color: rgba(255, 255, 255, 0.774);
-        cursor: pointer;
         color: black;
         transition: 0.2s;
         border: 3px solid black;
         border-radius: 10px;
+        cursor: pointer;
 
         &:hover {
           background-color: rgba(245, 222, 179, 0.619);
@@ -123,13 +129,11 @@ header {
 
       &:checked+label {
         background-color: rgba(72, 62, 47, 0.685);
-        color: #fff;
+        color: rgba(255, 255, 255, 0.908);
       }
     }
   }
 }
-
-
 
 .select-all {
   width: 600px;
@@ -150,6 +154,7 @@ header {
     transition: 0.2s;
     border: 3px solid black;
     border-radius: 10px;
+    display: none;
 
     &:hover {
       background-color: rgba(191, 182, 164, 0.753);
@@ -170,108 +175,139 @@ header {
   .todo-list {
     width: 600px;
 
-    .todo {
-      margin: 5px 10px;
-      background-color: white;
-      border: 2px solid black;
-      border-radius: 10px;
-      font-size: 20px;
-      color: black;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .todo-wrap {
       transition: 1s ease;
-
-      .todo-item {
-        flex-grow: 1;
-        border: none;
-        font-size: 30px;
-        outline: none;
-        padding: 0 10px;
-        overflow-x: scroll;
-        white-space: nowrap;
-      }
 
       &.delete {
         transform: translateX(10rem);
         opacity: 0;
       }
 
-      &.done {
-        text-decoration: line-through;
+      &.done .todo {
+        color: grey;
+        text-decoration: 2px line-through;
         opacity: 0.5;
+        transition: .3s ease;
       }
 
-      .todo-item::-webkit-scrollbar {
-        display: none;
+      &.done .date-div {
+        opacity: .5;
       }
 
-      .delete-btn {
-        background: darkcyan;
-        color: white;
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
-        font-size: 1rem;
+      .date-div {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: grey;
+        font-size: 11px;
       }
 
-      .complete-btn {
-        background: seagreen;
-        color: white;
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
-        font-size: 1rem;
-      }
+      .todo {
+        margin: 5px 10px;
+        font-size: 20px;
+        color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-      .edit-btn {
-        background: yellowgreen;
-        color: white;
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
-        font-size: 1rem;
-      }
+        .todo-item {
+          flex-grow: 1;
+          line-height: 50px;
+          background-color: rgba(226, 226, 226, 0.899);
+          border: 2px solid black;
+          border-radius: 10px;
+          font-size: 30px;
+          outline: none;
+          padding: 0 10px;
+          overflow-x: scroll;
+          white-space: nowrap;
 
-      .save-btn {
-        background: black;
-        color: white;
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
-        font-size: 1rem;
-        background: black;
-        color: white;
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
-        font-size: 1rem;
-        display: none;
-      }
+          &:focus {
+            background-color: rgba(244, 239, 229, 0.763);
+            outline: none;
+            padding-left: 20px;
+          }
+        }
 
-      &.edit {
-
-        .complete-btn,
-        .edit-btn,
-        .delete-btn {
+        .todo-item::-webkit-scrollbar {
           display: none;
         }
 
+        .delete-btn {
+          background-color: rgba(226, 226, 226, 0.899);
+          color: rgb(154, 14, 42);
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 15px;
+          font-size: 16px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(255, 249, 238, 0.527);
+          }
+        }
+
+        .complete-btn {
+          background-color: rgba(226, 226, 226, 0.899);
+          color: seagreen;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 15px;
+          font-size: 16px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(255, 249, 238, 0.527);
+          }
+        }
+
+        .edit-btn {
+          background-color: rgba(226, 226, 226, 0.899);
+          color: #402d5a;
+          border: none;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 15px;
+          font-size: 16px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(255, 249, 238, 0.527);
+          }
+        }
+
         .save-btn {
-          display: block;
+          background-color: rgba(226, 226, 226, 0.899);
+          color: black;
+          border: none;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 15px;
+          font-size: 16px;
+          cursor: pointer;
+          display: none;
+
+          &:hover {
+            background-color: rgba(255, 249, 238, 0.527);
+          }
+        }
+
+        &.edit {
+
+          .complete-btn,
+          .edit-btn,
+          .delete-btn {
+            display: none;
+          }
+
+          .save-btn {
+            display: block;
+          }
         }
       }
     }
-  }
-
-  .date-div {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: grey;
-    font-size: 11px;
   }
 }
 
@@ -290,7 +326,7 @@ header {
   }
 
   .select-all {
-    width: 90%;
+    width: 80%;
   }
 
 }
