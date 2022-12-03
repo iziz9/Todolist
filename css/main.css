@@ -108,8 +108,35 @@ header .github img {
 }
 .input-container .radio-area {
   width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
+}
+.input-container .radio-area .select-all {
+  position: absolute;
+  top: 55px;
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  display: none;
+}
+.input-container .radio-area .select-all .delete-all {
+  width: 120px;
+  height: 30px;
+  line-height: 23px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgba(251, 239, 217, 0.748);
+  cursor: pointer;
+  color: black;
+  transition: 0.2s;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+.input-container .radio-area .select-all .delete-all:hover {
+  background-color: rgba(191, 182, 164, 0.753);
 }
 .input-container .radio-area input[type=radio] {
   width: 0;
@@ -135,30 +162,8 @@ header .github img {
   background-color: rgba(72, 62, 47, 0.685);
   color: rgba(255, 255, 255, 0.908);
 }
-
-.select-all {
-  width: 600px;
+.input-container .radio-area input[type=radio]:checked + label[for=filter3] + .select-all {
   display: flex;
-  justify-content: flex-end;
-  margin: 0 auto;
-}
-.select-all .delete-all {
-  width: 120px;
-  height: 30px;
-  line-height: 23px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  background-color: rgba(251, 239, 217, 0.748);
-  cursor: pointer;
-  color: black;
-  transition: 0.2s;
-  border: 3px solid black;
-  border-radius: 10px;
-  display: none;
-}
-.select-all .delete-all:hover {
-  background-color: rgba(191, 182, 164, 0.753);
 }
 
 .todo-container {

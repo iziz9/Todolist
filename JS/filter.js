@@ -2,8 +2,7 @@ import { selectors } from "./store.js";
 
 // 목록 필터링
 export function filterTodo(status) {
-  const todoListEl = document.querySelector("#todo-list");
-  const todoDivEls = todoListEl.querySelectorAll('.todo-wrap');
+  const todoDivEls = selectors.todoListEl.querySelectorAll('.todo-wrap');
   for (const todoDivEl of todoDivEls) {
     switch (status) {
       case 'ALL':

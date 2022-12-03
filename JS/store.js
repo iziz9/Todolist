@@ -15,5 +15,6 @@ export const selectors = {
   'todoContainerEl': document.getElementById("todo-container"),
   'inputContainerEl': document.getElementById('input-container'),
   'radioAreaEl': document.querySelector('#radio-area'),
-  'filterRadioBtnEls': document.querySelectorAll('input[name="filter"]')
+  'filterRadioBtnEls': document.querySelectorAll('input[name="filter"]'),
+  'deleteAllBtnEl': document.querySelector('.delete-all'),
 }

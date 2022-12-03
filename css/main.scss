@@ -102,8 +102,38 @@ header {
 
   .radio-area {
     width: 100%;
+    position: relative;
     display: flex;
     justify-content: center;
+
+    .select-all {
+      position: absolute;
+      top: 55px;
+      width: 600px;
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 auto;
+      display: none;
+
+      .delete-all {
+        width: 120px;
+        height: 30px;
+        line-height: 23px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: rgba(251, 239, 217, 0.748);
+        cursor: pointer;
+        color: black;
+        transition: 0.2s;
+        border: 3px solid black;
+        border-radius: 10px;
+
+        &:hover {
+          background-color: rgba(191, 182, 164, 0.753);
+        }
+      }
+    }
 
     input[type='radio'] {
       width: 0;
@@ -131,36 +161,14 @@ header {
         background-color: rgba(72, 62, 47, 0.685);
         color: rgba(255, 255, 255, 0.908);
       }
+
+      &:checked+label[for="filter3"]+.select-all {
+        display: flex;
+      }
     }
   }
 }
 
-.select-all {
-  width: 600px;
-  display: flex;
-  justify-content: flex-end;
-  margin: 0 auto;
-
-  .delete-all {
-    width: 120px;
-    height: 30px;
-    line-height: 23px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 600;
-    background-color: rgba(251, 239, 217, 0.748);
-    cursor: pointer;
-    color: black;
-    transition: 0.2s;
-    border: 3px solid black;
-    border-radius: 10px;
-    display: none;
-
-    &:hover {
-      background-color: rgba(191, 182, 164, 0.753);
-    }
-  }
-}
 
 .todo-container {
   background-color: rgba(0, 0, 0, 0.692);
