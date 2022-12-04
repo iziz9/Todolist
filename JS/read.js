@@ -1,4 +1,5 @@
 import { url, header, selectors } from './store.js'
+import { createdDate, updatedDate, createText, createEachBtn } from './content.js'
 
 // get 요청 보내기
 export async function getTodo() {
@@ -11,68 +12,35 @@ export async function getTodo() {
     alert('할 일을 추가해주세요')
   }
   else {
-    // getResult.forEach(item => renderTodo(item));
+    // try / catch / finally(로딩아이콘 동작 stop넣기)
+
     return getResult
   }
 }
 
-// todo 내용 생성
+// 리스트 렌더링
 export async function renderTodo() {
   const list = await getTodo()
   list.forEach(item => {
     const todoWrap = document.createElement('div');
     todoWrap.classList.add('todo-wrap');
-
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
+
+    // 완료버튼 클릭 시 완료 폴더로 이동하기 위한 클래스 부여
     if (item.done === true) {
       todoWrap.classList.add('done');
     }
 
-    // text & button
     const todoContent = document.createElement('input');
-    todoContent.value = item.title;
-    todoContent.readOnly = true;
-    todoContent.classList.add('todo-item');
-
-    const fragment = new DocumentFragment();
-    fragment.appendChild(todoContent);
-    fragment.appendChild(
-      createBtn('complete-btn', 'complete-btn', ['fas', 'fa-check'], item.id)
-    );
-    fragment.appendChild(
-      createBtn('edit-btn', 'edit-btn', ['fas', 'fa-edit'], item.id)
-    );
-    fragment.appendChild(
-      createBtn('delete-btn', 'delete-btn', ['fas', 'fa-trash'], item.id)
-    );
-    fragment.appendChild(
-      createBtn('save-btn', 'save-btn', ['fas', 'fa-save'], item.id)
-    );
-    todoDiv.appendChild(fragment);
+    createText(item, todoContent);
+    createEachBtn(todoDiv, todoContent, item);
 
     const secondFragment = new DocumentFragment();
     const dateDiv = document.createElement('div');
     dateDiv.classList.add('date-div');
-
-    // created date
-    const todoDate = document.createElement('span');
-    const date = new Date(item.createdAt);
-    date.setHours(date.getHours() + 9);
-    const dateFormat = date.toISOString().replace('T', ' ').substring(0, 16);
-    todoDate.textContent = `Created At ${dateFormat}`
-    todoDate.classList.add('todo-date');
-    dateDiv.appendChild(todoDate);
-
-    // updated date
-    const todoUpdate = document.createElement('span');
-    const update = new Date(item.updatedAt);
-    update.setHours(update.getHours() + 9);
-    const updateFormat = update.toISOString().replace('T', ' ').substring(0, 16);
-    todoUpdate.textContent = `Updated At ${updateFormat}`
-    todoUpdate.classList.add('todo-update');
-    dateDiv.appendChild(todoUpdate);
-
+    createdDate(item, dateDiv);
+    updatedDate(item, dateDiv);
     secondFragment.appendChild(dateDiv);
 
     todoWrap.append(todoDiv, dateDiv);
@@ -80,16 +48,4 @@ export async function renderTodo() {
     selectors.todoListEl.appendChild(secondFragment);
     selectors.inputText.value = '';
   })
-}
-
-// 목록에 버튼 생성
-export function createBtn(btnId, btnClass, iconClass, itemId) {
-  const btn = document.createElement('button');
-  const icon = document.createElement('i');
-  icon.classList.add(...iconClass);
-  btn.appendChild(icon);
-  btn.id = btnId;
-  btn.classList.add(btnClass);
-  btn.dataset.id = `${itemId}`
-  return btn;
 }

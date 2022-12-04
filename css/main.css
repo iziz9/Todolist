@@ -45,6 +45,7 @@ header .github:hover {
   filter: sepia(20);
 }
 
+/* INPUT CONTAINER */
 .input-container {
   height: 200px;
   display: flex;
@@ -54,6 +55,7 @@ header .github:hover {
   padding: 10px;
   justify-content: space-between;
   flex-wrap: wrap;
+  /* FILTER BTN, DELETE-ALL BTN */
 }
 .input-container .input-area {
   position: relative;
@@ -170,6 +172,7 @@ header .github:hover {
   display: flex;
 }
 
+/* CONTENT */
 .todo-container {
   background-color: rgba(0, 0, 0, 0.692);
   width: -webkit-fit-content;
@@ -320,11 +323,11 @@ header .github:hover {
   width: 50px;
   height: 50px;
   margin: 0 auto;
-  color: #000D16;
-  visibility: hidden;
+  color: rgba(251, 239, 217, 0.748);
+  display: none;
 }
 
-svg {
+.loading-svg {
   -webkit-animation: progress-circular-rotate 1.4s linear infinite;
           animation: progress-circular-rotate 1.4s linear infinite;
 }
