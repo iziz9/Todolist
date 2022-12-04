@@ -14,25 +14,25 @@ export async function deleteTodo(btn) {
   return res;
 }
 
+// done 리스트 전체삭제
 export const deleteAllClickEvent =
-  selectors.deleteAllBtnEl.addEventListener('click', (event) => {
+  selectors.deleteAllBtnEl.addEventListener('click', async (event) => {
     HTMLCollection.prototype.forEach = Array.prototype.forEach; // HTMLCollection에 forEach 프로토타입 생성
 
     const doneListEls = document.getElementsByClassName('done')
 
-    doneListEls.forEach(async (item) => {
+    doneListEls.forEach((item) => {
       console.log(item);
 
-      item.classList.add('delete');
-      item.addEventListener('transitionend', () => {
-        item.remove();
-      })
-
-      const res = await fetch(url + `${item.dataset.id}`, {
-        method: 'DELETE',
-        headers: header
-      })
-      return res;
+      // item.classList.add('delete');
+      // item.addEventListener('transitionend', () => {
+      //   item.remove();
+      // })
     });
+    const res = await fetch(url + `${item.dataset.id}`, {
+      method: 'DELETE',
+      headers: header
+    })
+    return res;
   });
-// forEach에 await넣으면 안됨... 다시해보기
+// forEach에 await넣으면 안됨... promise all로 다시해보기

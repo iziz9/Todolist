@@ -1,3 +1,4 @@
+/* VARIABLE */
 * {
   margin: 0;
   padding: 0;
@@ -40,6 +41,9 @@ header .github img {
   height: 65px;
   margin: 0 20px;
 }
+header .github:hover {
+  filter: sepia(20);
+}
 
 .input-container {
   height: 200px;
@@ -61,23 +65,23 @@ header .github img {
   font-size: 35px;
   border: 4px solid black;
   border-radius: 20px;
-  background-color: rgba(226, 226, 226, 0.899);
+  background-color: rgba(249, 245, 237, 0.756);
   width: 100%;
 }
 .input-container .input-area .todo-input::-moz-placeholder {
   text-align: center;
-  color: rgba(65, 124, 1, 0.262745098);
+  color: rgba(65, 124, 1, 0.4352941176);
 }
 .input-container .input-area .todo-input:-ms-input-placeholder {
   text-align: center;
-  color: rgba(65, 124, 1, 0.262745098);
+  color: rgba(65, 124, 1, 0.4352941176);
 }
 .input-container .input-area .todo-input::placeholder {
   text-align: center;
-  color: rgba(65, 124, 1, 0.262745098);
+  color: rgba(65, 124, 1, 0.4352941176);
 }
 .input-container .input-area .todo-input:focus {
-  background-color: rgba(245, 237, 222, 0.756);
+  background-color: rgba(251, 239, 217, 0.748);
   outline: none;
   padding-left: 20px;
   caret-color: olivedrab;
@@ -148,7 +152,7 @@ header .github img {
   padding: 10px 20px;
   font-size: 25px;
   font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.774);
+  background-color: rgba(249, 245, 237, 0.756);
   color: black;
   transition: 0.2s;
   border: 3px solid black;
@@ -156,7 +160,7 @@ header .github img {
   cursor: pointer;
 }
 .input-container .radio-area input[type=radio] + label:hover {
-  background-color: rgba(245, 222, 179, 0.619);
+  background-color: rgba(191, 182, 164, 0.753);
 }
 .input-container .radio-area input[type=radio]:checked + label {
   background-color: rgba(72, 62, 47, 0.685);
@@ -308,5 +312,69 @@ header .github img {
   }
   .select-all {
     width: 80%;
+    margin: 0 auto;
+  }
+}
+/* LOADING ICON */
+[h-loader] {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  color: #000D16;
+  visibility: hidden;
+}
+
+svg {
+  -webkit-animation: progress-circular-rotate 1.4s linear infinite;
+          animation: progress-circular-rotate 1.4s linear infinite;
+}
+
+circle {
+  -webkit-animation: progress-circular-dash 1.4s ease-in-out infinite;
+          animation: progress-circular-dash 1.4s ease-in-out infinite;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-dasharray: 80, 200;
+  stroke-dashoffset: 0px;
+  stroke: currentColor;
+}
+
+@-webkit-keyframes progress-circular-rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes progress-circular-rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@-webkit-keyframes progress-circular-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0px;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15px;
+  }
+  to {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+@keyframes progress-circular-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0px;
+  }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15px;
+  }
+  to {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -124px;
   }
 }/*# sourceMappingURL=main.css.map */

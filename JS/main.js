@@ -13,7 +13,6 @@ renderTodo();
 selectors.todoListEl.addEventListener('click', (event) => {
   const { target } = event; // 버튼 + 아이콘
   const btn = target.closest('button'); // 현재 엘리먼트에서 본인 포함 가장 가까운 조상 반환, 조상요소에 이벤트 위임
-  console.log(btn);
   if (!btn) { return; }
   if (btn.matches('#delete-btn')) { // 선택하려는 엘리먼트가 맞는지 확인
     deleteTodo(btn);
