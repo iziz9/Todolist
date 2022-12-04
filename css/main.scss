@@ -357,7 +357,9 @@ header {
 }
 
 /* LOADING ICON */
+
 [h-loader] {
+  position: absolute;
   width: 50px;
   height: 50px;
   margin: 0 auto;

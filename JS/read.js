@@ -1,25 +1,33 @@
-import { url, header, selectors } from './store.js'
+import { url, header, selectors, loadingIconVisible, loadingIconHide } from './store.js'
 import { createdDate, updatedDate, createText, createEachBtn } from './content.js'
 
 // get 요청 보내기
 export async function getTodo() {
-  const res = await fetch(url, {
-    method: 'GET',
-    headers: header
-  })
-  const getResult = await res.json()
-  if (!getResult || getResult.length === 0) {
-    alert('할 일을 추가해주세요')
-  }
-  else {
-    // try / catch / finally(로딩아이콘 동작 stop넣기)
-
-    return getResult
+  // selectors.loadingIconEl.style.display = "block";
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: header
+    })
+    const getResult = await res.json()
+    if (!getResult || getResult.length === 0) {
+      alert('할 일을 추가해주세요')
+    }
+    else {
+      return getResult
+    }
+  } catch (err) {
+    console.log(err);
+    alert("Sorry! Try again...")
+  } finally {
+    // 로딩애니메이션 stop
+    // selectors.loadingIconEl.style.display = "none";
   }
 }
 
 // 리스트 렌더링
 export async function renderTodo() {
+  loadingIconVisible()
   const list = await getTodo()
   list.forEach(item => {
     const todoWrap = document.createElement('div');
@@ -48,4 +56,5 @@ export async function renderTodo() {
     selectors.todoListEl.appendChild(secondFragment);
     selectors.inputText.value = '';
   })
+  loadingIconHide();
 }

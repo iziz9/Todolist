@@ -17,4 +17,12 @@ export const selectors = {
   'radioAreaEl': document.querySelector('#radio-area'),
   'filterRadioBtnEls': document.querySelectorAll('input[name="filter"]'),
   'deleteAllBtnEl': document.querySelector('.delete-all'),
+  'loadingIconEl': document.querySelector('.loading')
+}
+
+export function loadingIconVisible() {
+  selectors.loadingIconEl.style.display = "flex";
+}
+export function loadingIconHide() {
+  selectors.loadingIconEl.style.display = "none";
 }

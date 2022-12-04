@@ -22,15 +22,20 @@ async function createHandler() {
 
 // post 요청 보내기
 async function postTodo(text) {
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: header,
-    body: JSON.stringify({
-      title: `${text}`
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: header,
+      body: JSON.stringify({
+        title: `${text}`
+      })
     })
-  })
-  const postResult = await res.json()
-  return postResult;
+    const postResult = await res.json()
+    return postResult;
+  } catch (err) {
+    console.log(err);
+    alert("Sorry! Try again...");
+  }
 }
 
 export {
