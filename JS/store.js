@@ -1,7 +1,5 @@
-import API_KEY from './apikey.js';
-
 export const url = 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/'
-
+export const {API_KEY} = process.env;
 export const header = {
   'content-type': 'application/json',
   'apikey': `${API_KEY}`,

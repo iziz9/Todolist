@@ -21,7 +21,8 @@ header {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 50px auto;
+  align-items: center;
+  margin: 60px auto;
   padding: 10px;
   font-size: 80px;
   text-shadow: 3px 3px 3px black;
@@ -48,8 +49,8 @@ header .youtube {
   width: 100px;
   text-align: center;
   position: fixed;
-  top: 70px;
-  left: 0;
+  top: -5px;
+  left: 90px;
   text-decoration: none;
 }
 header .youtube img {
@@ -67,9 +68,9 @@ header .youtube:hover {
   display: flex;
   align-items: center;
   width: 600px;
-  margin: auto;
+  margin: 0 auto;
   padding: 10px;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   /* FILTER BTN, DELETE-ALL BTN */
 }

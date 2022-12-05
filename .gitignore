@@ -1,8 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
-
-#API KEY
-apikey.js
+# Created by https://www.toptal.com/developers/gitignore/api/vercel,node,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=vercel,node,visualstudiocode
 
 ### Node ###
 # Logs
@@ -144,6 +141,9 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+### Vercel ###
+.vercel
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -163,4 +163,4 @@ dist
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/vercel,node,visualstudiocode

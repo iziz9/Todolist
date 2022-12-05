@@ -1,6 +1,7 @@
 /* VARIABLE */
 $bgcolor: rgba(249, 245, 237, 0.756);
 $beige : rgba(251, 239, 217, 0.748);
+$white : rgba(255, 255, 255, 0.908);
 
 @mixin flex {
   display: flex;
@@ -17,7 +18,7 @@ $beige : rgba(251, 239, 217, 0.748);
 body {
   font-family: 'NanumDaSiSiJagHae', sans-serif;
   background-color: black;
-  color: rgba(255, 255, 255, 0.908);
+  color: $white;
   background-image: url(../images/christmastree.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,7 +30,8 @@ header {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 50px auto;
+  align-items: center;
+  margin: 60px auto;
   padding: 10px;
   font-size: 80px;
   text-shadow: 3px 3px 3px black;
@@ -59,8 +61,8 @@ header {
     width: 100px;
     text-align: center;
     position: fixed;
-    top: 70px;
-    left: 0;
+    top: -5px;
+    left: 90px;
     text-decoration: none;
 
     img {
@@ -81,9 +83,10 @@ header {
   display: flex;
   align-items: center;
   width: 600px;
-  margin: auto;
+  margin: 0 auto;
   padding: 10px;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 
   .input-area {
@@ -194,7 +197,7 @@ header {
 
       &:checked+label {
         background-color: rgba(72, 62, 47, 0.685);
-        color: rgba(255, 255, 255, 0.908);
+        color: $white;
       }
 
       &:checked+label[for="filter3"]+.select-all {

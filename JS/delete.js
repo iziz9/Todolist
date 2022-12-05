@@ -39,13 +39,16 @@ selectors.deleteAllBtnEl.addEventListener('click', (event) => {
 
 export async function deleteAll() {
   const deleteArr = [];
-  const res = await getTodo();
-  res.forEach(item => {
-    if (item.done === true) {
-      deleteArr.push(deleteTodo(item.id), deleteEachItem(item.id));
-      console.log(item)
-    }
-  })
-  await Promise.all(deleteArr);
-  // selectors.todoListEl.textContent = '';
+  try {
+    const res = await getTodo();
+    res.forEach(item => {
+      if (item.done === true) {
+        deleteArr.push(deleteTodo(item.id), deleteEachItem(item.id));
+        console.log(item)
+      }
+    })
+    await Promise.all(deleteArr);
+  } catch (err) {
+    alert("Sorry! Try again...")
+  }
 };
