@@ -2,12 +2,15 @@
 
 주어진 API를 활용해 '[완성 예시](https://beautiful-daifuku-b9462c.netlify.app/)' 처럼 자유롭게 할 일 관리 프로젝트를 만들어보세요.
 
-[배포]()
+[배포 사이트]()
 
 ---
 
 ## 기술 스택
 
+- 
+- 
+- 
 
 ---
 
@@ -18,18 +21,28 @@
 - API KEY 숨김
 - 생성 일시, 수정 일시 표시
 - 기능별로 모듈 분리
+
   `create.js` : API post 요청
+
   `read.js` : API get 요청
+
   `update.js` : API put 요청
+
   `delete.js` : API delete 요청
+
   `content.js` : 리스트 컨텐트 생성 기능
+
   `filter.js` : 컨텐트 완료상태에 따른 필터링 기능
+
   `store.js` : API 요청에 사용할 텍스트, 중복 사용되는 변수 저장
 
 ---
 
 ## 어려웠던 점 & 피드백 요청
 
+- API 요청에 문제가 생길 경우에 대비해 try, catch를 요청 함수 안에 넣어보았는데 제대로 동작하지 않습니다. 어떤 부분이 문제인지 궁금합니다 ㅠㅠ
+- 
+- 
 
 ---
 
