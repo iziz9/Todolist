@@ -125,7 +125,7 @@ header .youtube:hover {
   font-size: 20px;
   border: none;
   border-radius: 15px;
-  color: rgba(226, 226, 226, 0.899);
+  color: rgba(250, 245, 235, 0.842);
   background: rgba(0, 0, 0, 0.859);
   cursor: pointer;
 }
@@ -242,7 +242,7 @@ header .youtube:hover {
 .todo-container .todo-list .todo-wrap .todo .todo-item {
   flex-grow: 1;
   line-height: 50px;
-  background-color: rgba(226, 226, 226, 0.899);
+  background-color: rgba(250, 245, 235, 0.842);
   border: 2px solid black;
   border-radius: 10px;
   font-size: 30px;
@@ -260,7 +260,7 @@ header .youtube:hover {
   display: none;
 }
 .todo-container .todo-list .todo-wrap .todo .delete-btn {
-  background-color: rgba(226, 226, 226, 0.899);
+  background-color: rgba(250, 245, 235, 0.842);
   color: rgb(154, 14, 42);
   border: 2px solid black;
   border-radius: 10px;
@@ -272,7 +272,7 @@ header .youtube:hover {
   background-color: rgba(255, 249, 238, 0.527);
 }
 .todo-container .todo-list .todo-wrap .todo .complete-btn {
-  background-color: rgba(226, 226, 226, 0.899);
+  background-color: rgba(250, 245, 235, 0.842);
   color: seagreen;
   border: 2px solid black;
   border-radius: 10px;
@@ -284,7 +284,7 @@ header .youtube:hover {
   background-color: rgba(255, 249, 238, 0.527);
 }
 .todo-container .todo-list .todo-wrap .todo .edit-btn {
-  background-color: rgba(226, 226, 226, 0.899);
+  background-color: rgba(250, 245, 235, 0.842);
   color: #402d5a;
   border: none;
   border: 2px solid black;
@@ -297,7 +297,7 @@ header .youtube:hover {
   background-color: rgba(255, 249, 238, 0.527);
 }
 .todo-container .todo-list .todo-wrap .todo .save-btn {
-  background-color: rgba(226, 226, 226, 0.899);
+  background-color: rgba(250, 245, 235, 0.842);
   color: black;
   border: none;
   border: 2px solid black;
