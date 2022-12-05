@@ -8,9 +8,17 @@
 
 ## 기술 스택
 
-- 
-- 
-- 
+- Programming
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=SASS&logoColor=white)
+
+- Deploy
+
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+
+- Etc
+
+![env](https://img.shields.io/badge/.ENV-ECD53F?style=for-the-badge&logo=.ENV&logoColor=white) ![Parcel](https://img.shields.io/badge/PARCEL-8DD6F9?style=for-the-badge&logoColor=white)
 
 ---
 
@@ -74,12 +82,12 @@
 - [ ] 가능하다면, 타입스크립트를 사용해보세요.
 - [ ] 할 일 항목의 순서를 바꿀 수 있도록 만들어보세요.
 - [x] 할 일을 완료하지 않은 항목과 완료한 항목을 분류해서 출력해보세요.
-- [ ] 할 일을 완료한 항목을 한 번에 삭제할 수 있도록 만들어보세요.
+- [x] 할 일을 완료한 항목을 한 번에 삭제할 수 있도록 만들어보세요.
 - [x] 할 일 항목의 최신 수정일을 표시해보세요.
 - [x] 할 일 목록이 출력되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
 - [ ] 기타 동작이 완료되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
 - [x] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
-- [ ] 할 일과 관련된 기타 기능도 고려해보세요.
+- [x] 할 일과 관련된 기타 기능도 고려해보세요.
 
 ---
 
