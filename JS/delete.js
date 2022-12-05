@@ -44,7 +44,6 @@ export async function deleteAll() {
     res.forEach(item => {
       if (item.done === true) {
         deleteArr.push(deleteTodo(item.id), deleteEachItem(item.id));
-        console.log(item)
       }
     })
     await Promise.all(deleteArr);
