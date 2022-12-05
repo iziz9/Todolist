@@ -2,7 +2,6 @@
   "name": "todo",
   "version": "1.0.0",
   "description": "주어진 API를 활용해 '[완성 예시](https://beautiful-daifuku-b9462c.netlify.app/)' 처럼 자유롭게 할 일 관리 프로젝트를 만들어보세요.",
-  "main": "main.js",
   "scripts": {
     "dev": "parcel ./index.html --open --no-cache",
     "build": "parcel build ./index.html --no-cache",
