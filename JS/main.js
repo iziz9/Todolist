@@ -4,10 +4,14 @@ import { deleteEachItem } from './delete.js';
 import { selectors } from './store.js'
 import { completeTodo, saveTodo, editTodo } from './update.js';
 import { submitEvent, createHandler, postTodo } from './create.js';
+import { randomPlaylist } from './playlist.js';
 
 // 초기화
 filterClickEvent();
 renderTodo();
+selectors.youtubeEl.addEventListener('click', (e) => {
+  randomPlaylist();
+})
 
 // 리스트 버튼 클릭 이벤트
 selectors.todoListEl.addEventListener('click', (event) => {

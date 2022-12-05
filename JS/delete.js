@@ -31,7 +31,9 @@ export async function deleteEachItem(id) {
 
 // delete all 버튼 클릭이벤트
 selectors.deleteAllBtnEl.addEventListener('click', (event) => {
-  deleteAll();
+  if (window.confirm("Are you sure you want to delete them all?")) {
+    deleteAll();
+  }
 });
 
 

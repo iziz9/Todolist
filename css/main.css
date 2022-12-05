@@ -44,6 +44,22 @@ header .github img {
 header .github:hover {
   filter: sepia(20);
 }
+header .youtube {
+  width: 100px;
+  text-align: center;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  text-decoration: none;
+}
+header .youtube img {
+  width: 65px;
+  height: 65px;
+  margin: 0 20px;
+}
+header .youtube:hover {
+  filter: contrast(2);
+}
 
 /* INPUT CONTAINER */
 .input-container {
