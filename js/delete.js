@@ -1,18 +1,5 @@
-import { getTodo, renderTodo } from './read.js';
-import { url, header, selectors } from './store.js';
-
-// 삭제 API 요청
-async function deleteTodo(id) {
-  try {
-    const res = await fetch(url + `${id}`, {
-      method: 'DELETE',
-      headers: header
-    })
-    return res;
-  } catch (err) {
-    alert("Sorry! Try again...")
-  }
-}
+import { selectors } from './store.js';
+import { deleteTodo, getTodo } from './requests.js';
 
 // 리스트에서 개별 삭제
 export async function deleteEachItem(id) {
@@ -36,7 +23,7 @@ selectors.deleteAllBtnEl.addEventListener('click', (event) => {
   }
 });
 
-
+// delete all 이벤트 핸들러
 export async function deleteAll() {
   const deleteArr = [];
   try {

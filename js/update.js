@@ -1,22 +1,4 @@
-import { url, header } from './store.js';
-
-// 수정 api 요청
-export async function putTodo(text, id, done) {
-  try {
-    const res = await fetch(url + `${id}`, {
-      method: 'PUT',
-      headers: header,
-      body: JSON.stringify({
-        title: `${text}`,
-        done: done
-      })
-    })
-    const postResult = await res.json()
-    return postResult;
-  } catch (err) {
-    alert("Sorry! Try again...")
-  }
-}
+import { putTodo } from "./requests";
 
 // done 상태 변경
 export function completeTodo(target) {
@@ -24,9 +6,11 @@ export function completeTodo(target) {
   todoItem.classList.toggle('done');
   const todoInputEl = todoItem.querySelector('input');
 
-  todoItem.classList.contains('done')
-    ? putTodo(todoInputEl.value, target.dataset.id, true)
-    : putTodo(todoInputEl.value, target.dataset.id, false)
+  putTodo(
+    todoInputEl.value,
+    target.dataset.id,
+    todoItem.classList.contains('done') ? true : false
+  );
 }
 
 // 텍스트 변경사항 저장

@@ -1,24 +1,7 @@
-import { url, header, selectors, loadingIconVisible, loadingIconHide } from './store.js'
+import { selectors, loadingIconVisible, loadingIconHide } from './store.js'
 import { createdDate, updatedDate, createText, createEachBtn } from './content.js'
+import { getTodo } from './requests.js'
 
-// get 요청 보내기
-export async function getTodo() {
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: header
-    })
-    const getResult = await res.json()
-    if (!getResult || getResult.length === 0) {
-      alert('Please enter your wish!')
-    }
-    else {
-      return getResult
-    }
-  } catch (err) {
-    alert(err, "Sorry! Try again...")
-  }
-}
 
 // 리스트 렌더링
 export async function renderTodo() {

@@ -1,10 +1,10 @@
-import { renderTodo } from './read.js';
+import { renderTodo } from './render.js';
 import { filterClickEvent } from './filter.js'
 import { deleteEachItem } from './delete.js';
 import { selectors } from './store.js'
 import { completeTodo, saveTodo, editTodo } from './update.js';
-import { submitEvent, createHandler, postTodo } from './create.js';
 import { randomPlaylist } from './playlist.js';
+import { postTodo, deleteTodo } from './requests.js';
 
 // 초기화
 filterClickEvent();
@@ -12,6 +12,22 @@ renderTodo();
 selectors.youtubeEl.addEventListener('click', (e) => {
   randomPlaylist();
 })
+
+// submit 이벤트 발생 시
+export const submitEvent = selectors.formEl.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  await createHandler();
+  selectors.todoListEl.textContent = '';
+  renderTodo();
+})
+
+// todo 생성을 위한 post 핸들러
+export async function createHandler() {
+  if (selectors.inputText.value.length === 0) {
+    return alert("Please enter your wish!");
+  }
+  await postTodo(selectors.inputText.value);
+}
 
 // 리스트 버튼 클릭 이벤트
 selectors.todoListEl.addEventListener('click', (event) => {
