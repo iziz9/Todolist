@@ -1,27 +1,31 @@
-
-// created date
-export function createdDate(item, dateDiv) {
+// created, updated date
+export function makeDate(item, dateDiv, type) {
   const todoDate = document.createElement('span');
-  const date = new Date(item.createdAt);
+  let date;
+  type === 'created'
+    ? date = new Date(item.createdAt)
+    : date = new Date(item.updatedAt);
   date.setHours(date.getHours() + 9);
   const dateFormat = date.toISOString().replace('T', ' ').substring(0, 16);
-  todoDate.textContent = `Created At ${dateFormat}`
-  todoDate.classList.add('todo-date');
+
+  let text = '';
+  let className = '';
+
+  if (type === 'created') {
+    text = `Created At ${dateFormat}`;
+    className = 'todo-date';
+  } else {
+    text = `Updated At ${dateFormat}`;
+    className = 'todo-update';
+  }
+
+  todoDate.textContent = text;
+  todoDate.classList.add(className);
   dateDiv.appendChild(todoDate);
   return dateDiv;
 }
 
-// updated date
-export function updatedDate(item, dateDiv) {
-  const todoUpdate = document.createElement('span');
-  const update = new Date(item.updatedAt);
-  update.setHours(update.getHours() + 9);
-  const updateFormat = update.toISOString().replace('T', ' ').substring(0, 16);
-  todoUpdate.textContent = `Updated At ${updateFormat}`
-  todoUpdate.classList.add('todo-update');
-  dateDiv.appendChild(todoUpdate);
-  return dateDiv;
-}
+
 
 // 리스트에 텍스트 생성
 export function createText(item, todoContent) {
